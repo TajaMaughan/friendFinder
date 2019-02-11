@@ -17,8 +17,3 @@ var friends = [
 ]
 
 module.exports = friends;
-
-
-for (var i = 0; i < friends.length; i++) {
-    //total difference between scores. Math.abs(parseInt(currentUser - currentFriend))
-}
