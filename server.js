@@ -6,11 +6,11 @@ var PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//requires routes files
+//requires routing files
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
-//let you know server is working
+//let you know server is working and give a link to the localhost
 app.listen(PORT, function() {
     console.log("App listening at http://localhost:" + PORT);
   });

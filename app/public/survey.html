@@ -208,8 +208,10 @@
 
 </html>
 <script type="text/javascript">
+  //the submit button that will be used after the survey is filled out
   $(".submit").on("click", function (event) {
     event.preventDefault();
+    //makes sure that every field in the survey is filled out
     function validateForm() {
       var isValid = true;
       $('.form-control').each(function () {
@@ -222,7 +224,9 @@
       });
       return isValid;
     }
+    //if it's all filled out, then it will post the infomation to the api
     if (validateForm()) {
+      //sets that survey values to values that can be pushed to the friends array
       var newFriend = {
         name: $("#name").val().trim(),
         img: $("#img").val().trim(),
@@ -239,12 +243,13 @@
           $("#q10").val()
         ]
       };
+      //posts to the api
       $.post("/api/friends", newFriend, function (data) {
         $("#friendName").text(data.friendName);
         $("#friendImg").attr("src", data.friendImg);
         $("#results").modal("toggle");
       })
-
+      //clears the form
       $("#name").val("");
       $("#img").val("");
       $("#q1").val("");
@@ -260,6 +265,7 @@
 
       console.log(newFriend);
     }
+    //if part of the survey is empty, it will alert the user.
     else {
       alert("please fill out all fields")
     }

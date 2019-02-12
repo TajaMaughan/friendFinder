@@ -1,5 +1,5 @@
 var path = require("path");
-
+//sets URL paths for both the survey and home pages.
 module.exports = function (app) {
     app.get("/survey", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
